@@ -1,3 +1,3 @@
 # Hydra
 
-A distributed microcontainer application server. Backed by kubernetes.
+A distributed event driven microcontainer application server. Backed by kubernetes.
