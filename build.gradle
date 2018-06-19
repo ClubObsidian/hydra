@@ -9,7 +9,12 @@ buildscript {
 
 
 apply plugin: 'java'
+apply plugin: 'application'
 apply plugin: 'com.github.johnrengelman.shadow'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+mainClassName = 'io.github.scorchis.hydra'
 
 repositories {
     mavenCentral()
@@ -24,6 +29,9 @@ shadowJar {
 
 
 dependencies {
-    compile 'org.slf4j:slf4j-api:1.7.21'
+    compileOnly 'org.slf4j:slf4j-api:1.7.21'
+    compile 'org.cfg4j:cfg4j-core:4.4.1'
+    compile 'org.cfg4j:cfg4j-git:4.4.1'
+    compile 'org.pf4j:pf4j:2.2.0'
     testCompile 'junit:junit:4.12'
 }
