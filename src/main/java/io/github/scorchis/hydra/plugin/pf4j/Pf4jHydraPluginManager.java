@@ -1,6 +1,7 @@
 package io.github.scorchis.hydra.plugin.pf4j;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +14,7 @@ import org.pf4j.DefaultPluginManager;
 import org.pf4j.PluginDescriptorFinder;
 import org.pf4j.PluginException;
 import org.pf4j.PluginFactory;
+import org.pf4j.PluginWrapper;
 
 import com.clubobsidian.trident.Event;
 import com.clubobsidian.trident.EventManager;
@@ -47,7 +49,12 @@ public class Pf4jHydraPluginManager extends DefaultPluginManager implements Plug
 	@Override
 	public List<HydraPlugin> getLoadedPlugins() 
 	{
-		
+		List<HydraPlugin> plugins = new ArrayList<>();
+		for(PluginWrapper wrapper : this.getPlugins())
+		{
+			plugins.add(wrapper.getPlugin());
+		}
+		return plugins;
 	}
 	
 
