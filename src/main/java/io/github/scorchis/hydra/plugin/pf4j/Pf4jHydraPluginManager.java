@@ -1,7 +1,12 @@
 package io.github.scorchis.hydra.plugin.pf4j;
 
 import java.io.File;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 import org.pf4j.CompoundPluginDescriptorFinder;
 import org.pf4j.DefaultPluginManager;
@@ -11,6 +16,7 @@ import org.pf4j.PluginFactory;
 
 import com.clubobsidian.trident.Event;
 import com.clubobsidian.trident.EventManager;
+import com.clubobsidian.trident.Listener;
 import com.clubobsidian.trident.impl.javaassist.JavaAssistEventManager;
 
 import io.github.scorchis.hydra.plugin.PluginManager;
@@ -19,9 +25,11 @@ import io.github.scorchis.hydra.plugin.HydraPlugin;
 public class Pf4jHydraPluginManager extends DefaultPluginManager implements PluginManager {
 
 	private EventManager eventManager;
+	private Map<HydraPlugin, Queue<Listener>> pluginListeners;
 	public Pf4jHydraPluginManager()
 	{
 		this.eventManager = new JavaAssistEventManager();
+		this.pluginListeners = new ConcurrentHashMap<>();
 	}
 	
 	@Override
@@ -41,13 +49,42 @@ public class Pf4jHydraPluginManager extends DefaultPluginManager implements Plug
 	{
 		
 	}
+	
 
 	@Override
 	public void callEvent(Event event) 
 	{
 		this.eventManager.callEvent(event);
 	}
+	
+	@Override
+	public void registerEvents(Listener listener, HydraPlugin plugin) 
+	{
+		Queue<Listener> pluginListeners = this.pluginListeners.get(plugin);
+		if(pluginListeners == null)
+		{
+			pluginListeners = new ConcurrentLinkedQueue<>();
+			this.pluginListeners.put(plugin, pluginListeners);
+		}
+		pluginListeners.add(listener);
+		this.eventManager.register(listener);
+	}
 
+	@Override
+	public void unregisterEvents(Listener listener, HydraPlugin plugin)
+	{
+		Queue<Listener> pluginListeners = this.pluginListeners.remove(plugin);
+		if(pluginListeners != null)
+		{
+			Iterator<Listener> it = pluginListeners.iterator();
+			while(it.hasNext())
+			{
+				Listener next = it.next();
+				this.eventManager.unregister(next);
+			}
+		}
+	}
+	
 	@Override
 	public void enablePlugin(HydraPlugin plugin) 
 	{
