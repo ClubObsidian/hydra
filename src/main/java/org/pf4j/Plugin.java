@@ -15,6 +15,8 @@
  */
 package org.pf4j;
 
+import java.nio.file.Path;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -59,22 +61,36 @@ public class Plugin extends HydraPlugin {
     /**
      * Retrieves the wrapper of this plug-in.
      */
-    public final PluginWrapper getWrapper() {
+    public final PluginWrapper getWrapper() 
+    {
         return wrapper;
     }
 
     /**
      * Start method is called by the application when the plugin is loaded.
      */
-    protected void start() throws PluginException {
+    protected void start() throws PluginException 
+    {
     	this.onEnable();
     }
 
     /**
      * Stop method is called by the application when the plugin is unloaded.
      */
-    protected void stop() throws PluginException {
+    protected void stop() throws PluginException 
+    {
     	this.onDisable();
     }
 
+	@Override
+	public Path getPath() 
+	{
+		return this.wrapper.getPluginPath();
+	}
+
+	@Override
+	public String getName() 
+	{
+		return this.wrapper.getPluginId();
+	}
 }
