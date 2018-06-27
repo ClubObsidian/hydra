@@ -66,8 +66,13 @@ public class Pf4jHydraPluginManager extends DefaultPluginManager implements Plug
 			pluginListeners = new ConcurrentLinkedQueue<>();
 			this.pluginListeners.put(plugin, pluginListeners);
 		}
-		pluginListeners.add(listener);
-		this.eventManager.register(listener);
+		boolean registered = this.eventManager.register(listener);
+		
+		//Don't add if not registered
+		if(registered)
+		{
+			pluginListeners.add(listener);
+		}
 	}
 
 	@Override
