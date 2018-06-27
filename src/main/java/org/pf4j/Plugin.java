@@ -66,13 +66,15 @@ public class Plugin extends HydraPlugin {
     /**
      * Start method is called by the application when the plugin is loaded.
      */
-    public void start() throws PluginException {
+    protected void start() throws PluginException {
+    	this.onEnable();
     }
 
     /**
      * Stop method is called by the application when the plugin is unloaded.
      */
-    public void stop() throws PluginException {
+    protected void stop() throws PluginException {
+    	this.onDisable();
     }
 
 }

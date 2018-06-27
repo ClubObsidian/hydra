@@ -1,9 +1,8 @@
 package io.github.scorchis.hydra.plugin;
 
-import org.pf4j.Plugin;
+import io.github.scorchis.hydra.plugin.pf4j.Pf4jHydraPlugin;
 
-public abstract class JavaPlugin extends Plugin {
+public abstract class JavaPlugin extends Pf4jHydraPlugin {
 
-	
 
 }

@@ -23,25 +23,4 @@ public class Pf4jHydraPluginManager extends DefaultPluginManager implements Plug
 	{
 		return new Pf4jHydraPluginFactory();
 	}
-
-	@Override
-	public List<HydraPlugin> loadedPlugins() 
-	{
-		
-		return null;
-	}
-
-	@Override
-	public void start() 
-	{
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void stop() 
-	{
-		
-		
-	}
 }

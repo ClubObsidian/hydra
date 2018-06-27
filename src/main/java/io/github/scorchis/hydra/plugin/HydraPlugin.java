@@ -1,7 +1,13 @@
 package io.github.scorchis.hydra.plugin;
 
+/**
+ * Extended by different plugin implementations
+ * 
+ */
+
 public abstract class HydraPlugin  {
 
-	//Allow other implementations later
+	public void onEnable() {}
+	public void onDisable() {}
 
 }
