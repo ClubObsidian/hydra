@@ -73,7 +73,7 @@ public class Pf4jHydraPluginManager extends DefaultPluginManager implements Plug
 			pluginListeners = new ConcurrentLinkedQueue<>();
 			this.pluginListeners.put(plugin, pluginListeners);
 		}
-		boolean registered = this.eventManager.register(listener);
+		boolean registered = this.eventManager.registerEvents(listener);
 		
 		//Don't add if not registered
 		if(registered)
@@ -92,7 +92,7 @@ public class Pf4jHydraPluginManager extends DefaultPluginManager implements Plug
 			while(it.hasNext())
 			{
 				Listener next = it.next();
-				this.eventManager.unregister(next);
+				this.eventManager.unregisterEvents(next);
 			}
 		}
 	}

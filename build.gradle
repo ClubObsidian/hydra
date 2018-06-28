@@ -34,6 +34,6 @@ dependencies {
     compile 'org.cfg4j:cfg4j-core:4.4.1'
     compile 'org.cfg4j:cfg4j-git:4.4.1'
     compile 'org.pf4j:pf4j:2.2.0'
-    compile 'com.github.clubobsidian:Trident:8d28520da7a8c1060fb0920b6326831f4e6ff03d'
+    compile 'com.github.clubobsidian:Trident:1.0.0'
     testCompile 'junit:junit:4.12'
 }
