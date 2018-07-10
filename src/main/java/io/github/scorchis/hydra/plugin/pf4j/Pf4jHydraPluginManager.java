@@ -19,7 +19,7 @@ import org.pf4j.PluginWrapper;
 import com.clubobsidian.trident.Event;
 import com.clubobsidian.trident.EventManager;
 import com.clubobsidian.trident.Listener;
-import com.clubobsidian.trident.impl.javaassist.JavaAssistEventManager;
+import com.clubobsidian.trident.impl.reflection.ReflectionEventManager;
 
 import io.github.scorchis.hydra.plugin.PluginManager;
 import io.github.scorchis.hydra.plugin.HydraPlugin;
@@ -30,7 +30,7 @@ public class Pf4jHydraPluginManager extends DefaultPluginManager implements Plug
 	private Map<HydraPlugin, Queue<Listener>> pluginListeners;
 	public Pf4jHydraPluginManager()
 	{
-		this.eventManager = new JavaAssistEventManager();
+		this.eventManager = new ReflectionEventManager();
 		this.pluginListeners = new ConcurrentHashMap<>();
 	}
 	

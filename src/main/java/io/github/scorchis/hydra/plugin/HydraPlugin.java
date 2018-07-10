@@ -16,4 +16,5 @@ public abstract class HydraPlugin  {
 	public abstract Path getPath();
 	
 	public abstract String getName();
+	
 }
