@@ -33,7 +33,7 @@ dependencies {
     compileOnly 'org.slf4j:slf4j-api:1.7.21'
     compile 'org.cfg4j:cfg4j-core:4.4.1'
     compile 'org.cfg4j:cfg4j-git:4.4.1'
-    compile 'org.pf4j:pf4j:2.2.0'
+    compile 'org.pf4j:pf4j:2.3.0'
     compile 'com.github.clubobsidian:Trident:1.0.2'
     testCompile 'junit:junit:4.12'
 }
