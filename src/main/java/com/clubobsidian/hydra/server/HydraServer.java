@@ -1,7 +1,7 @@
-package io.github.scorchis.hydra.server;
+package com.clubobsidian.hydra.server;
 
-import io.github.scorchis.hydra.plugin.PluginManager;
-import io.github.scorchis.hydra.plugin.pf4j.Pf4jHydraPluginManager;
+import com.clubobsidian.hydra.plugin.PluginManager;
+import com.clubobsidian.hydra.plugin.pf4j.Pf4jHydraPluginManager;
 
 public class HydraServer implements Server {
 

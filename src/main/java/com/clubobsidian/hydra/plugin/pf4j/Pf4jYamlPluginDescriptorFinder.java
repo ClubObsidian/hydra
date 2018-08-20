@@ -1,4 +1,4 @@
-package io.github.scorchis.hydra.plugin.pf4j;
+package com.clubobsidian.hydra.plugin.pf4j;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,8 +10,8 @@ import org.pf4j.PluginDescriptorFinder;
 import org.pf4j.PluginException;
 import org.pf4j.util.FileUtils;
 
-import io.github.scorchis.hydra.plugin.config.PluginConfiguration;
-import io.github.scorchis.hydra.plugin.config.PluginConfigurationProvider;
+import com.clubobsidian.hydra.plugin.config.PluginConfiguration;
+import com.clubobsidian.hydra.plugin.config.PluginConfigurationProvider;
 
 public class Pf4jYamlPluginDescriptorFinder implements PluginDescriptorFinder {
 

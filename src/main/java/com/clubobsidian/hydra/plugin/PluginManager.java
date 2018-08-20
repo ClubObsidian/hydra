@@ -1,4 +1,4 @@
-package io.github.scorchis.hydra.plugin;
+package com.clubobsidian.hydra.plugin;
 
 import java.io.File;
 import java.util.List;

@@ -1,4 +1,4 @@
-package io.github.scorchis.hydra.plugin.pf4j;
+package com.clubobsidian.hydra.plugin.pf4j;
 
 import org.pf4j.Plugin;
 

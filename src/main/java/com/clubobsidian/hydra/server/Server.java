@@ -1,6 +1,6 @@
-package io.github.scorchis.hydra.server;
+package com.clubobsidian.hydra.server;
 
-import io.github.scorchis.hydra.plugin.PluginManager;
+import com.clubobsidian.hydra.plugin.PluginManager;
 
 public interface Server {
 

@@ -1,4 +1,4 @@
-package io.github.scorchis.hydra.plugin.pf4j;
+package com.clubobsidian.hydra.plugin.pf4j;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -17,13 +17,12 @@ import org.pf4j.PluginException;
 import org.pf4j.PluginFactory;
 import org.pf4j.PluginWrapper;
 
+import com.clubobsidian.hydra.plugin.HydraPlugin;
+import com.clubobsidian.hydra.plugin.PluginManager;
 import com.clubobsidian.trident.Event;
 import com.clubobsidian.trident.EventManager;
 import com.clubobsidian.trident.Listener;
 import com.clubobsidian.trident.impl.javaassist.JavaAssistEventManager;
-
-import io.github.scorchis.hydra.plugin.PluginManager;
-import io.github.scorchis.hydra.plugin.HydraPlugin;
 
 public class Pf4jHydraPluginManager extends DefaultPluginManager implements PluginManager {
 

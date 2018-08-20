@@ -20,7 +20,7 @@ import java.nio.file.Path;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.github.scorchis.hydra.plugin.HydraPlugin;
+import com.clubobsidian.hydra.plugin.HydraPlugin;
 
 /**
  * This class will be extended by all plugins and

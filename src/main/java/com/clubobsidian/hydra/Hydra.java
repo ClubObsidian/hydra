@@ -1,7 +1,7 @@
-package io.github.scorchis.hydra;
+package com.clubobsidian.hydra;
 
-import io.github.scorchis.hydra.server.HydraServer;
-import io.github.scorchis.hydra.server.Server;
+import com.clubobsidian.hydra.server.HydraServer;
+import com.clubobsidian.hydra.server.Server;
 
 public class Hydra {
 

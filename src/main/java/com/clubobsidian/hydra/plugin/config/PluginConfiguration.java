@@ -1,4 +1,4 @@
-package io.github.scorchis.hydra.plugin.config;
+package com.clubobsidian.hydra.plugin.config;
 
 public class PluginConfiguration {
 

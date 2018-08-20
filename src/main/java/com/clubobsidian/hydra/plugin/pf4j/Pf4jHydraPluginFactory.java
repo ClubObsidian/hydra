@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.scorchis.hydra.plugin.pf4j;
+package com.clubobsidian.hydra.plugin.pf4j;
 
 import org.pf4j.DefaultExtensionFactory;
 import org.pf4j.Plugin;

@@ -1,4 +1,4 @@
-package io.github.scorchis.hydra.plugin.config;
+package com.clubobsidian.hydra.plugin.config;
 
 import java.nio.file.Paths;
 import java.util.Arrays;
