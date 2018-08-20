@@ -1,6 +1,7 @@
 package io.github.scorchis.hydra.plugin.pf4j;
 
 import java.io.File;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -44,6 +45,16 @@ public class Pf4jHydraPluginManager extends DefaultPluginManager implements Plug
 	protected PluginFactory createPluginFactory()
 	{
 		return new Pf4jHydraPluginFactory();
+	}
+	
+	@Override
+	public void loadPlugins()
+	{
+		if(Files.notExists(this.getPluginsRoot()))
+		{
+			this.getPluginsRoot().toFile().mkdir();
+		}
+		super.loadPlugins();
 	}
 
 	@Override

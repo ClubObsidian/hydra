@@ -1,4 +1,4 @@
-package io.github.scorchis.hydra;
+package io.github.scorchis.hydra.server;
 
 import io.github.scorchis.hydra.plugin.PluginManager;
 import io.github.scorchis.hydra.plugin.pf4j.Pf4jHydraPluginManager;

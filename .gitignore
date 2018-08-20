@@ -1,3 +1,6 @@
+# Hydra
+/plugins/*
+
 # Compiled class file
 *.class
 
