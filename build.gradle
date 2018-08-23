@@ -16,7 +16,7 @@ apply plugin: 'idea'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
-mainClassName = 'io.github.scorchis.hydra.Hydra'
+mainClassName = 'com.clubobsidian.hydra.Hydra'
 
 repositories {
     mavenCentral()
@@ -25,7 +25,7 @@ repositories {
 }
 
 shadowJar {
-   baseName = 'Hydra'
+   baseName = 'hydra'
    classifier = null
    version = null
 }
@@ -36,6 +36,6 @@ dependencies {
     compile 'org.cfg4j:cfg4j-core:4.4.1'
     compile 'org.cfg4j:cfg4j-git:4.4.1'
     compile 'org.pf4j:pf4j:2.4.0'
-    compile 'com.github.clubobsidian:Trident:1.0.5'
+    compile 'com.github.clubobsidian:trident:1.0.5'
     testCompile 'junit:junit:4.12'
 }
