@@ -1,4 +1,4 @@
-/*   Copyright 2018 Club Obsidian and contributors.
+   Copyright 2018 Club Obsidian and contributors.
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -11,12 +11,3 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-*/
-package com.clubobsidian.hydra.plugin.pf4j;
-
-import org.pf4j.Plugin;
-
-public class Pf4jHydraPlugin extends Plugin {
-
-	
-}
