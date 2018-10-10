@@ -32,6 +32,10 @@ shadowJar {
 }
 
 
+artifacts {
+    archives shadowJar
+}
+
 dependencies {
     compile 'org.slf4j:slf4j-api:1.7.25'
     compile 'com.netflix.blitz4j:blitz4j:1.37.2'
