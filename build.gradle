@@ -27,8 +27,8 @@ repositories {
 
 shadowJar {
    baseName = 'hydra'
-   classifier = ''
-   version = '0.0.1'
+   classifier = null
+   version = null
 }
 
 
