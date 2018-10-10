@@ -37,7 +37,7 @@ import com.clubobsidian.hydra.plugin.PluginManager;
 import com.clubobsidian.trident.Event;
 import com.clubobsidian.trident.EventManager;
 import com.clubobsidian.trident.Listener;
-import com.clubobsidian.trident.impl.javaassist.JavaAssistEventManager;
+import com.clubobsidian.trident.impl.reflection.ReflectionEventManager;
 
 public class Pf4jHydraPluginManager extends DefaultPluginManager implements PluginManager {
 
@@ -45,7 +45,7 @@ public class Pf4jHydraPluginManager extends DefaultPluginManager implements Plug
 	private Map<HydraPlugin, Queue<Listener>> pluginListeners;
 	public Pf4jHydraPluginManager()
 	{
-		this.eventManager = new JavaAssistEventManager();
+		this.eventManager = new ReflectionEventManager();
 		this.pluginListeners = new ConcurrentHashMap<>();
 	}
 	

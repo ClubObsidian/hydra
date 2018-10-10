@@ -4,4 +4,7 @@
 
 _Currently in development_
 
-A distributed event driven microcontainer application server. Backed by kubernetes.
+A set of libraries used for event-driven programming.
+Implements an application server thats loads plugin,
+has an event-bus and allows for easy changing of internal
+components.
