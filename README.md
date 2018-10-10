@@ -4,7 +4,7 @@
 
 _Currently in development_
 
-A set of libraries used for event-driven programming.
-Implements an application server thats loads plugin,
-has an event-bus and allows for easy changing of internal
+An application server built for event-driven programming.
+The application server loads plugin in jar form, and has 
+an event-bus and allows for easy changing of internal
 components.
