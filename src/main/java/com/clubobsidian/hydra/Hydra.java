@@ -49,6 +49,7 @@ public class Hydra {
 			}
 		};
 		th.start();
+		
 		//Temporary
 		Hydra.running.set(false);
 	}
@@ -56,5 +57,11 @@ public class Hydra {
 	public static Server getServer()
 	{
 		return Hydra.server;
+	}
+	
+	public static void shutdown()
+	{
+		Hydra.running.set(false);
+		Hydra.server.stop();
 	}
 }
