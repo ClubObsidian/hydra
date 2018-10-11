@@ -34,7 +34,6 @@ artifacts {
 
 dependencies {
     compile 'org.slf4j:slf4j-api:1.7.25'
-    compile 'com.netflix.blitz4j:blitz4j:1.37.2'
     compile 'org.slf4j:slf4j-log4j12:1.7.25'
     compile 'org.pf4j:pf4j:2.4.0'
     compile 'com.github.clubobsidian:trident:1.0.8'
