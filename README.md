@@ -1,6 +1,7 @@
 # Hydra
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Known Vulnerabilities](https://snyk.io/test/github/ClubObsidian/hydra/badge.svg?targetFile=build.gradle)](https://snyk.io/test/github/ClubObsidian/hydra?targetFile=build.gradle)
 
 _Currently in development_
 
