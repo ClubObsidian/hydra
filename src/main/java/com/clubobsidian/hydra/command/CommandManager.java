@@ -17,6 +17,9 @@ package com.clubobsidian.hydra.command;
 
 public interface CommandManager {
 
-	
+	public abstract boolean registerCommand(Command command);
+	public abstract boolean registerCommand(Command command, boolean force);
+	public abstract boolean commandExists(String command);
+	public abstract boolean dispatchCommand(String command);
 
 }

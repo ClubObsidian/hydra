@@ -17,6 +17,34 @@ package com.clubobsidian.hydra.command;
 
 public class HydraCommandManager implements CommandManager {
 
+	@Override
+	public boolean registerCommand(Command command) 
+	{
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean registerCommand(Command command, boolean force) 
+	{
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean commandExists(String command) 
+	{
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean dispatchCommand(String command) 
+	{
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 	
 
 }

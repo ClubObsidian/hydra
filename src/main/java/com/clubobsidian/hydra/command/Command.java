@@ -17,6 +17,6 @@ package com.clubobsidian.hydra.command;
 
 public interface Command {
 
-	
+	public boolean onCommand(String[] args);
 
 }
