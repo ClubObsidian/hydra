@@ -24,6 +24,8 @@ public interface Server {
 	
 	public CommandManager getCommandManager();
 	
+	public Thread getConsoleThread();
+	
 	public void start();
 	
 	public void stop();

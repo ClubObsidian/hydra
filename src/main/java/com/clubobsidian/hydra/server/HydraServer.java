@@ -43,6 +43,12 @@ public class HydraServer implements Server {
 	{
 		return this.commandManager;
 	}
+	
+	@Override
+	public Thread getConsoleThread()
+	{
+		return this.consoleThread;
+	}
 
 	@Override
 	public void start() 
