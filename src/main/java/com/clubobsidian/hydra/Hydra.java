@@ -33,9 +33,9 @@ public class Hydra {
 
 	public static void main(String[] args)
 	{
-		File mixyLogFile = new File("hydra.log");
-		if(mixyLogFile.exists())
-			mixyLogFile.delete();
+		File hydraLogFile = new File("hydra.log");
+		if(hydraLogFile.exists())
+			hydraLogFile.delete();
 
 		BasicConfigurator.configure();
 
