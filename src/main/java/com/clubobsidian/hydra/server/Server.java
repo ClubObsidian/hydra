@@ -15,11 +15,14 @@
 */
 package com.clubobsidian.hydra.server;
 
+import com.clubobsidian.hydra.command.CommandManager;
 import com.clubobsidian.hydra.plugin.PluginManager;
 
 public interface Server {
 
 	public PluginManager getPluginManager();
+	
+	public CommandManager getCommandManager();
 	
 	public void start();
 	

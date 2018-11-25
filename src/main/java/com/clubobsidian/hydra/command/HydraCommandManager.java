@@ -15,36 +15,101 @@
 */
 package com.clubobsidian.hydra.command;
 
+import java.util.Arrays;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+import com.clubobsidian.hydra.Hydra;
+import com.clubobsidian.hydra.command.impl.StopCommand;
+import com.clubobsidian.hydra.event.CommandExecuteEvent;
+import com.clubobsidian.hydra.plugin.PluginManager;
+
 public class HydraCommandManager implements CommandManager {
 
+	private Map<String,Command> commands;
+	
+	public HydraCommandManager()
+	{
+		this.commands = new ConcurrentHashMap<>();
+		this.registerBuiltInCommands();
+	}
+	
 	@Override
 	public boolean registerCommand(Command command) 
 	{
-		// TODO Auto-generated method stub
-		return false;
+		return this.registerCommand(command, false);
 	}
 
 	@Override
 	public boolean registerCommand(Command command, boolean force) 
 	{
-		// TODO Auto-generated method stub
-		return false;
+		if(force)
+		{
+			this.commands.put(command.getName(), command);
+			return true;
+		}
+		
+		if(this.commandExists(command.getName()))
+		{
+			return false;
+		}
+		
+		this.commands.put(command.getName(), command);
+		return true;
 	}
 
 	@Override
 	public boolean commandExists(String command) 
 	{
-		// TODO Auto-generated method stub
-		return false;
+		return this.commands.keySet().contains(command);
 	}
 
 	@Override
 	public boolean dispatchCommand(String command) 
 	{
-		// TODO Auto-generated method stub
+		if(command.length() <= 0)
+		{
+			Hydra.getLogger().info("Invalid command length for command, length is: " + command.length());
+			return false;
+		}
+
+		String[] args = command.split(" ");
+		if(args.length > 0)
+		{
+			String name = args[0];
+			if(this.commandExists(name))
+			{
+				if(args.length > 1)
+				{
+					args = Arrays.copyOfRange(args, 1, args.length);
+				}
+				else
+				{
+					args = new String[0];
+				}
+				
+				Command cmd = this.commands.get(name);
+				CommandExecuteEvent event = new CommandExecuteEvent(cmd);
+
+				PluginManager eventManager = Hydra.getServer().getPluginManager();
+				eventManager.callEvent(event);
+				
+				if(!event.isCanceled())
+				{
+					cmd.onCommand(args);
+					return true;
+				}
+			}
+			else
+			{
+				Hydra.getLogger().info("Unknown command " + name + " please try again");
+			}
+		}
 		return false;
 	}
-
 	
-
+	private void registerBuiltInCommands()
+	{
+		this.registerCommand(new StopCommand());
+	}
 }

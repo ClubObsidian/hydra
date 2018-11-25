@@ -15,8 +15,20 @@
 */
 package com.clubobsidian.hydra.command.impl;
 
-public class StopCommand {
+import com.clubobsidian.hydra.Hydra;
+import com.clubobsidian.hydra.command.Command;
 
-	
+public class StopCommand extends Command {
 
+	public StopCommand() 
+	{
+		super("stop");
+	}
+
+	@Override
+	public boolean onCommand(String[] args) 
+	{
+		Hydra.shutdown();
+		return true;
+	}
 }

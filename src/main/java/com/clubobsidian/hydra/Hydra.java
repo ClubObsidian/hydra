@@ -15,18 +15,30 @@
 */
 package com.clubobsidian.hydra;
 
+import java.io.File;
 import java.util.concurrent.atomic.AtomicBoolean;
+
+import org.apache.log4j.BasicConfigurator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.clubobsidian.hydra.server.HydraServer;
 import com.clubobsidian.hydra.server.Server;
 
 public class Hydra {
 
+	private static final Logger logger = LoggerFactory.getLogger(Hydra.class);
 	private static Server server;
 	private static AtomicBoolean running;
-	
+
 	public static void main(String[] args)
 	{
+		File mixyLogFile = new File("hydra.log");
+		if(mixyLogFile.exists())
+			mixyLogFile.delete();
+
+		BasicConfigurator.configure();
+
 		Hydra.server = new HydraServer();
 		Hydra.server.start();
 		running = new AtomicBoolean(true);
@@ -49,16 +61,26 @@ public class Hydra {
 			}
 		};
 		th.start();
-		
+
 		//Temporary
-		Hydra.running.set(false);
+		//Hydra.running.set(false);
 	}
-	
+
+	public static Logger getLogger()
+	{
+		return Hydra.logger;
+	}
+
 	public static Server getServer()
 	{
 		return Hydra.server;
 	}
-	
+
+	public static boolean isRunning()
+	{
+		return Hydra.running.get();
+	}
+
 	public static void shutdown()
 	{
 		Hydra.running.set(false);

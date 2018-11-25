@@ -15,8 +15,19 @@
 */
 package com.clubobsidian.hydra.command;
 
-public interface Command {
+public abstract class Command {
 
-	public boolean onCommand(String[] args);
+	private String name;
+	public Command(String name)
+	{
+		this.name = name;
+	}
+	
+	public String getName()
+	{
+		return this.name;
+	}
+	
+	public abstract boolean onCommand(String[] args);
 
 }
