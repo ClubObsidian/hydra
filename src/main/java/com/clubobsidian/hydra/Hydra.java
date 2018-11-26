@@ -16,7 +16,6 @@
 package com.clubobsidian.hydra;
 
 import java.io.File;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.apache.log4j.BasicConfigurator;
 
@@ -33,7 +32,6 @@ public class Hydra {
 
 	private static final Logger logger = LoggerFactory.getLogger(Hydra.class);
 	private static Server server;
-	private static AtomicBoolean running;
 
 	public static void main(String[] args)
 	{
@@ -42,8 +40,6 @@ public class Hydra {
 			hydraLogFile.delete();
 
 		BasicConfigurator.configure();
-
-		Hydra.running = new AtomicBoolean(true);
 		
 		Injector injector = Guice.createInjector(new HydraServerModule());
 		Hydra.server = injector.getInstance(Server.class);
@@ -55,7 +51,7 @@ public class Hydra {
 			@Override
 			public void run()
 			{
-				while(Hydra.isRunning())
+				while(Hydra.getServer().isRunning())
 				{
 					try 
 					{
@@ -82,16 +78,5 @@ public class Hydra {
 	public static Server getServer()
 	{
 		return Hydra.server;
-	}
-
-	public static boolean isRunning()
-	{
-		return Hydra.running.get();
-	}
-
-	public static void shutdown()
-	{
-		Hydra.running.set(false);
-		Hydra.server.stop();
 	}
 }

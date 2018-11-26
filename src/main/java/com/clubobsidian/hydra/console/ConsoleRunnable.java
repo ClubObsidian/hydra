@@ -14,7 +14,7 @@ public class ConsoleRunnable implements Runnable {
 	{
 		LineReader reader = LineReaderBuilder.builder().build();
 		String prompt = "> ";
-		while (Hydra.isRunning())
+		while (Hydra.getServer().isRunning())
 		{
 			String line = null;
 			try

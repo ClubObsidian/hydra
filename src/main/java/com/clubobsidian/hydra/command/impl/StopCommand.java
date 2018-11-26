@@ -28,7 +28,7 @@ public class StopCommand extends Command {
 	@Override
 	public boolean onCommand(String[] args) 
 	{
-		Hydra.shutdown();
+		Hydra.getServer().stop();
 		return true;
 	}
 }

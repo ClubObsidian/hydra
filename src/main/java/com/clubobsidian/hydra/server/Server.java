@@ -26,7 +26,10 @@ public interface Server {
 	
 	public Thread getConsoleThread();
 	
+	public boolean isRunning();
+	
 	public void start();
 	
 	public void stop();
+	
 }

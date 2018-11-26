@@ -15,6 +15,8 @@
 */
 package com.clubobsidian.hydra.server;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import com.clubobsidian.hydra.command.CommandManager;
 import com.clubobsidian.hydra.console.ConsoleRunnable;
 import com.clubobsidian.hydra.plugin.PluginManager;
@@ -26,12 +28,14 @@ public class HydraServer implements Server {
 	private PluginManager pluginManager;
 	private CommandManager commandManager;
 	private Thread consoleThread;
+	private AtomicBoolean running;
 	
 	@Inject
 	public HydraServer(PluginManager pluginManager, CommandManager commandManager)
 	{
 		this.pluginManager = pluginManager;
 		this.commandManager = commandManager;
+		this.running = new AtomicBoolean(false);
 	}
 	
 	@Override
@@ -53,8 +57,15 @@ public class HydraServer implements Server {
 	}
 
 	@Override
+	public boolean isRunning() 
+	{
+		return this.running.get();
+	}
+	
+	@Override
 	public void start() 
 	{
+		this.running.set(true);
 		this.consoleThread = new Thread(new ConsoleRunnable());
 		this.consoleThread.start();
 		this.pluginManager.loadPlugins();
@@ -63,6 +74,7 @@ public class HydraServer implements Server {
 	@Override
 	public void stop() 
 	{
+		this.running.set(false);
 		this.pluginManager.unloadPlugins();
 	}
 }
