@@ -61,14 +61,17 @@ public class HydraServer implements Server {
 	{
 		return this.running.get();
 	}
-	
+
 	@Override
 	public void start() 
 	{
-		this.running.set(true);
-		this.consoleThread = new Thread(new ConsoleRunnable());
-		this.consoleThread.start();
-		this.pluginManager.loadPlugins();
+		if(!this.running.get())
+		{
+			this.running.set(true);
+			this.consoleThread = new Thread(new ConsoleRunnable());
+			this.consoleThread.start();
+			this.pluginManager.loadPlugins();
+		}
 	}
 
 	@Override
