@@ -16,20 +16,22 @@
 package com.clubobsidian.hydra.server;
 
 import com.clubobsidian.hydra.command.CommandManager;
-import com.clubobsidian.hydra.command.HydraCommandManager;
 import com.clubobsidian.hydra.console.ConsoleRunnable;
 import com.clubobsidian.hydra.plugin.PluginManager;
-import com.clubobsidian.hydra.plugin.pf4j.Pf4jHydraPluginManager;
+import com.google.inject.Inject;
+
 
 public class HydraServer implements Server {
 
-	private Pf4jHydraPluginManager pluginManager;
+	private PluginManager pluginManager;
 	private CommandManager commandManager;
 	private Thread consoleThread;
-	public HydraServer()
+	
+	@Inject
+	public HydraServer(PluginManager pluginManager, CommandManager commandManager)
 	{
-		this.pluginManager = new Pf4jHydraPluginManager();
-		this.commandManager = new HydraCommandManager();
+		this.pluginManager = pluginManager;
+		this.commandManager = commandManager;
 	}
 	
 	@Override
@@ -54,14 +56,13 @@ public class HydraServer implements Server {
 	public void start() 
 	{
 		this.consoleThread = new Thread(new ConsoleRunnable());
-		this.pluginManager.loadPlugins();
-		this.pluginManager.startPlugins();
 		this.consoleThread.start();
+		this.pluginManager.loadPlugins();
 	}
 
 	@Override
 	public void stop() 
 	{
-		this.pluginManager.stopPlugins();
+		this.pluginManager.unloadPlugins();
 	}
 }

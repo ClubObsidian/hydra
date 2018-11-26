@@ -19,11 +19,15 @@ import java.io.File;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.apache.log4j.BasicConfigurator;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.clubobsidian.hydra.server.HydraServer;
 import com.clubobsidian.hydra.server.Server;
+import com.clubobsidian.hydra.server.module.HydraServerModule;
+
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 
 public class Hydra {
 
@@ -39,15 +43,19 @@ public class Hydra {
 
 		BasicConfigurator.configure();
 
-		Hydra.server = new HydraServer();
+		Hydra.running = new AtomicBoolean(true);
+		
+		Injector injector = Guice.createInjector(new HydraServerModule());
+		Hydra.server = injector.getInstance(Server.class);
+		
 		Hydra.server.start();
-		running = new AtomicBoolean(true);
+		
 		Thread th = new Thread()
 		{
 			@Override
 			public void run()
 			{
-				while(running.get())
+				while(Hydra.isRunning())
 				{
 					try 
 					{

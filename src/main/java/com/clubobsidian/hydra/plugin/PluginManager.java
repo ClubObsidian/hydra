@@ -37,4 +37,8 @@ public interface PluginManager {
 	
 	public void disablePlugin(HydraPlugin plugin);	
 	
+	public void loadPlugins();
+	
+	public void unloadPlugins();
+	
 }

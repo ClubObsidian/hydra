@@ -60,7 +60,7 @@ public class Pf4jHydraPluginManager extends DefaultPluginManager implements Plug
 	{
 		return new Pf4jHydraPluginFactory();
 	}
-	
+
 	@Override
 	public void loadPlugins()
 	{
@@ -69,6 +69,13 @@ public class Pf4jHydraPluginManager extends DefaultPluginManager implements Plug
 			this.getPluginsRoot().toFile().mkdir();
 		}
 		super.loadPlugins();
+		this.startPlugins();
+	}
+
+	@Override
+	public void unloadPlugins()
+	{
+		this.stopPlugins();
 	}
 
 	@Override
@@ -154,4 +161,6 @@ public class Pf4jHydraPluginManager extends DefaultPluginManager implements Plug
 	{
 		this.unloadPlugin(plugin.getName());
 	}
+	
+	
 }
