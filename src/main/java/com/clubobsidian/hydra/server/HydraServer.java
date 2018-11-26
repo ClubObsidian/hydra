@@ -63,7 +63,7 @@ public class HydraServer implements Server {
 	}
 
 	@Override
-	public void start() 
+	public boolean start() 
 	{
 		if(!this.running.get())
 		{
@@ -71,13 +71,16 @@ public class HydraServer implements Server {
 			this.consoleThread = new Thread(new ConsoleRunnable());
 			this.consoleThread.start();
 			this.pluginManager.loadPlugins();
+			return true;
 		}
+		return false;
 	}
 
 	@Override
-	public void stop() 
+	public boolean stop() 
 	{
 		this.running.set(false);
 		this.pluginManager.unloadPlugins();
+		return true;
 	}
 }

@@ -21,7 +21,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import com.clubobsidian.hydra.Hydra;
 import com.clubobsidian.hydra.command.impl.StopCommand;
-import com.clubobsidian.hydra.event.CommandExecuteEvent;
+import com.clubobsidian.hydra.event.command.CommandExecuteEvent;
 import com.clubobsidian.hydra.plugin.PluginManager;
 
 public class HydraCommandManager implements CommandManager {

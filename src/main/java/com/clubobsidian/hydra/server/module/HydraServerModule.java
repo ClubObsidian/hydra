@@ -6,6 +6,7 @@ import com.clubobsidian.hydra.plugin.PluginManager;
 import com.clubobsidian.hydra.plugin.pf4j.Pf4jHydraPluginManager;
 import com.clubobsidian.hydra.server.HydraServer;
 import com.clubobsidian.hydra.server.Server;
+
 import com.google.inject.Binder;
 import com.google.inject.Module;
 

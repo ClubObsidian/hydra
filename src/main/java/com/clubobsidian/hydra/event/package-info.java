@@ -13,18 +13,4 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-package com.clubobsidian.hydra.server;
-
-import com.clubobsidian.hydra.command.CommandManager;
-import com.clubobsidian.hydra.plugin.PluginManager;
-
-public interface Server {
-
-	public PluginManager getPluginManager();
-	public CommandManager getCommandManager();
-	public Thread getConsoleThread();
-	public boolean isRunning();
-	public boolean start();
-	public boolean stop();
-	
-}
+package com.clubobsidian.hydra.event;
