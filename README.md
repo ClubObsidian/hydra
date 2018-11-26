@@ -7,6 +7,24 @@
 _Currently in development_
 
 An application server built for event-driven programming.
-The application server loads plugin in jar form, and has 
-an event-bus and allows for easy changing of internal
-components.
+The application server loads plugins in jar form, and has 
+an event-bus. Hydra is being built with extensibility in mind.
+
+## Development
+
+### Eclipse
+
+1. Git clone the project
+2. Generate eclipse files with `gradlew eclipse`
+3. Import project
+4. Right click project -> Add gradle nature
+
+### Intellij
+
+1. Git clone the project
+2. Generate intellij files with `gradlew idea`
+3. Import project
+
+### Building
+
+`gradlew shadowJar`
