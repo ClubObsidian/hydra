@@ -23,7 +23,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.clubobsidian.hydra.server.Server;
-import com.clubobsidian.hydra.server.module.HydraServerModule;
+import com.clubobsidian.hydra.server.module.ServerModule;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -41,7 +41,7 @@ public class Hydra {
 
 		BasicConfigurator.configure();
 		
-		Injector injector = Guice.createInjector(new HydraServerModule());
+		Injector injector = Guice.createInjector(new ServerModule());
 		Hydra.server = injector.getInstance(Server.class);
 		
 		Hydra.server.start();

@@ -10,7 +10,7 @@ import com.clubobsidian.hydra.server.Server;
 import com.google.inject.Binder;
 import com.google.inject.Module;
 
-public class HydraServerModule implements Module {
+public class ServerModule implements Module {
 
 
 	@Override
