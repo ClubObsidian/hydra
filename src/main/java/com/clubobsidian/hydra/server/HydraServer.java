@@ -17,11 +17,13 @@ package com.clubobsidian.hydra.server;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import com.clubobsidian.hydra.Hydra;
 import com.clubobsidian.hydra.command.CommandManager;
 import com.clubobsidian.hydra.console.ConsoleRunnable;
 import com.clubobsidian.hydra.event.server.ServerStartedEvent;
 import com.clubobsidian.hydra.event.server.ServerStoppedEvent;
 import com.clubobsidian.hydra.plugin.PluginManager;
+
 import com.google.inject.Inject;
 
 
@@ -69,6 +71,7 @@ public class HydraServer implements Server {
 	{
 		if(!this.running.get())
 		{
+			Hydra.getLogger().info("Starting hydra...");
 			this.running.set(true);
 			this.consoleThread = new Thread(new ConsoleRunnable());
 			this.consoleThread.start();
@@ -85,6 +88,7 @@ public class HydraServer implements Server {
 	{
 		if(this.running.get())
 		{
+			Hydra.getLogger().info("Stopping hydra...");
 			ServerStoppedEvent event = new ServerStoppedEvent(this);
 			this.pluginManager.callEvent(event);
 			this.running.set(false);
