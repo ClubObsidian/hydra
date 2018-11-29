@@ -13,32 +13,21 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-package com.clubobsidian.hydra.plugin;
+package com.clubobsidian.hydra.event.server;
 
-import java.io.File;
-import java.util.List;
-
+import com.clubobsidian.hydra.server.Server;
 import com.clubobsidian.trident.Event;
-import com.clubobsidian.trident.Listener;
 
-public interface PluginManager {
+public class ServerStartedEvent extends Event {
 
-	public List<HydraPlugin> getLoadedPlugins();
+	private Server server;
+	public ServerStartedEvent(Server server)
+	{
+		this.server = server;
+	}
 	
-	public void callEvent(Event event);
-	
-	public void registerEvents(Listener listener, HydraPlugin plugin);
-	
-	public void unregisterEvents(Listener listener, HydraPlugin plugin);
-	
-	public void enablePlugin(HydraPlugin plugin);
-	
-	public void enablePlugin(File file);
-	
-	public void disablePlugin(HydraPlugin plugin);	
-	
-	public void enablePlugins();
-	
-	public void disablePlugins();
-	
+	public Server getServer()
+	{
+		return this.server;
+	}
 }

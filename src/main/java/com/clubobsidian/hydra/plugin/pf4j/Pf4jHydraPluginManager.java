@@ -62,7 +62,7 @@ public class Pf4jHydraPluginManager extends DefaultPluginManager implements Plug
 	}
 
 	@Override
-	public void loadPlugins()
+	public void enablePlugins()
 	{
 		if(Files.notExists(this.getPluginsRoot()))
 		{
@@ -73,7 +73,7 @@ public class Pf4jHydraPluginManager extends DefaultPluginManager implements Plug
 	}
 
 	@Override
-	public void unloadPlugins()
+	public void disablePlugins()
 	{
 		this.stopPlugins();
 	}
@@ -161,6 +161,4 @@ public class Pf4jHydraPluginManager extends DefaultPluginManager implements Plug
 	{
 		this.unloadPlugin(plugin.getName());
 	}
-	
-	
 }

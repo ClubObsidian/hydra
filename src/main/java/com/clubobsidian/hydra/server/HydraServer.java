@@ -19,6 +19,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import com.clubobsidian.hydra.command.CommandManager;
 import com.clubobsidian.hydra.console.ConsoleRunnable;
+import com.clubobsidian.hydra.event.server.ServerStartedEvent;
 import com.clubobsidian.hydra.plugin.PluginManager;
 import com.google.inject.Inject;
 
@@ -70,7 +71,9 @@ public class HydraServer implements Server {
 			this.running.set(true);
 			this.consoleThread = new Thread(new ConsoleRunnable());
 			this.consoleThread.start();
-			this.pluginManager.loadPlugins();
+			this.pluginManager.enablePlugins();
+			ServerStartedEvent event = new ServerStartedEvent(this);
+			this.pluginManager.callEvent(event);
 			return true;
 		}
 		return false;
@@ -80,7 +83,7 @@ public class HydraServer implements Server {
 	public boolean stop() 
 	{
 		this.running.set(false);
-		this.pluginManager.unloadPlugins();
+		this.pluginManager.disablePlugins();
 		return true;
 	}
 }
