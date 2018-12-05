@@ -19,9 +19,6 @@ import java.io.File;
 
 import org.apache.log4j.BasicConfigurator;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.clubobsidian.hydra.server.Server;
 import com.clubobsidian.hydra.server.module.ServerModule;
 
@@ -64,9 +61,6 @@ public class Hydra {
 			}
 		};
 		th.start();
-
-		//Temporary
-		//Hydra.running.set(false);
 	}
 
 	public static Server getServer()
