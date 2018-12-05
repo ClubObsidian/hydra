@@ -69,7 +69,7 @@ public class HydraCommandManager implements CommandManager {
 	{
 		if(command.length() <= 0)
 		{
-			Hydra.getLogger().info("Invalid command length for command, length is: " + command.length());
+			Hydra.getServer().getLogger().info("Invalid command length for command, length is: " + command.length());
 			return false;
 		}
 
@@ -102,7 +102,7 @@ public class HydraCommandManager implements CommandManager {
 			}
 			else
 			{
-				Hydra.getLogger().info("Unknown command " + name + " please try again");
+				Hydra.getServer().getLogger().info("Unknown command " + name + " please try again");
 			}
 		}
 		return false;

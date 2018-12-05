@@ -1,5 +1,8 @@
 package com.clubobsidian.hydra.server.module;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.clubobsidian.hydra.command.CommandManager;
 import com.clubobsidian.hydra.command.HydraCommandManager;
 import com.clubobsidian.hydra.plugin.PluginManager;
@@ -17,6 +20,7 @@ public class ServerModule implements Module {
 	public void configure(Binder binder) 
 	{
 		binder.bind(Server.class).to(HydraServer.class);
+		binder.bind(Logger.class).toInstance(LoggerFactory.getLogger("Hydra"));
 		binder.bind(PluginManager.class).to(Pf4jHydraPluginManager.class);
 		binder.bind(CommandManager.class).to(HydraCommandManager.class);
 	}

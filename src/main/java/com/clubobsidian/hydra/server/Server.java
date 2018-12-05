@@ -15,11 +15,14 @@
 */
 package com.clubobsidian.hydra.server;
 
+import org.slf4j.Logger;
+
 import com.clubobsidian.hydra.command.CommandManager;
 import com.clubobsidian.hydra.plugin.PluginManager;
 
 public interface Server {
 
+	public Logger getLogger();
 	public PluginManager getPluginManager();
 	public CommandManager getCommandManager();
 	public Thread getConsoleThread();

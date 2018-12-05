@@ -17,7 +17,8 @@ package com.clubobsidian.hydra.server;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import com.clubobsidian.hydra.Hydra;
+import org.slf4j.Logger;
+
 import com.clubobsidian.hydra.command.CommandManager;
 import com.clubobsidian.hydra.console.ConsoleRunnable;
 import com.clubobsidian.hydra.event.server.ServerStartedEvent;
@@ -29,17 +30,25 @@ import com.google.inject.Inject;
 
 public class HydraServer implements Server {
 
+	private Logger logger;
 	private PluginManager pluginManager;
 	private CommandManager commandManager;
 	private Thread consoleThread;
 	private AtomicBoolean running;
 	
 	@Inject
-	public HydraServer(PluginManager pluginManager, CommandManager commandManager)
+	public HydraServer(Logger logger, PluginManager pluginManager, CommandManager commandManager)
 	{
+		this.logger = logger;
 		this.pluginManager = pluginManager;
 		this.commandManager = commandManager;
 		this.running = new AtomicBoolean(false);
+	}
+	
+	@Override
+	public Logger getLogger()
+	{
+		return this.logger;
 	}
 	
 	@Override
@@ -71,7 +80,7 @@ public class HydraServer implements Server {
 	{
 		if(!this.running.get())
 		{
-			Hydra.getLogger().info("Starting hydra...");
+			this.getLogger().info("Starting hydra...");
 			this.running.set(true);
 			this.consoleThread = new Thread(new ConsoleRunnable());
 			this.consoleThread.start();
@@ -88,7 +97,7 @@ public class HydraServer implements Server {
 	{
 		if(this.running.get())
 		{
-			Hydra.getLogger().info("Stopping hydra...");
+			this.getLogger().info("Stopping hydra...");
 			ServerStoppedEvent event = new ServerStoppedEvent(this);
 			this.pluginManager.callEvent(event);
 			this.running.set(false);

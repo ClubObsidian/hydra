@@ -30,7 +30,6 @@ import com.google.inject.Injector;
 
 public class Hydra {
 
-	private static final Logger logger = LoggerFactory.getLogger(Hydra.class);
 	private static Server server;
 
 	public static void main(String[] args)
@@ -68,11 +67,6 @@ public class Hydra {
 
 		//Temporary
 		//Hydra.running.set(false);
-	}
-
-	public static Logger getLogger()
-	{
-		return Hydra.logger;
 	}
 
 	public static Server getServer()
