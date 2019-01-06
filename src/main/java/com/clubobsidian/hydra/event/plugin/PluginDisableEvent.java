@@ -13,19 +13,21 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-package com.clubobsidian.hydra.plugin;
+package com.clubobsidian.hydra.event.plugin;
 
-import java.nio.file.Path;
+import com.clubobsidian.hydra.plugin.HydraPlugin;
+import com.clubobsidian.trident.Event;
 
-/**
- * Extended by different plugin implementations
- * 
- */
-public abstract class HydraPlugin  {
+public class PluginDisableEvent extends Event {
+
+	private HydraPlugin plugin;
+	public PluginDisableEvent(HydraPlugin plugin)
+	{
+		this.plugin = plugin;
+	}
 	
-	public void onEnable() {}
-	public void onDisable() {}
-	public abstract Path getPath();
-	public abstract String getName();
-	
+	public HydraPlugin getPlugin()
+	{
+		return this.plugin;
+	}
 }
