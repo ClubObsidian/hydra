@@ -36,7 +36,7 @@ artifacts {
 dependencies {
     compile 'org.slf4j:slf4j-api:1.7.25'
     compile 'org.slf4j:slf4j-log4j12:1.7.25'
-    compile 'org.jline:jline:3.10.0'
+    compile 'org.jline:jline:3.13.0'
     compile 'org.pf4j:pf4j:2.5.0'
     compile 'com.github.clubobsidian:trident:1.1.0'
     compile 'com.github.clubobsidian:wrappy:1.8.0'
